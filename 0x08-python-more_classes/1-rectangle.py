@@ -71,4 +71,4 @@ class Rectangle:
             raise TypeError('height must be an integer')
         elif value < 0:
             raise ValueError('height must be greater than 0')
-        self.__width = value
+        self.__height = value
