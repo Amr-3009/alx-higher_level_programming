@@ -9,7 +9,7 @@ class Rectangle:
         width (int): horizontal dimesion of rectangle, default is 1
         height (int): vertical dimesion of rectangle, default is 1
     """
-    def __init__(self, width=1, height=1):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
