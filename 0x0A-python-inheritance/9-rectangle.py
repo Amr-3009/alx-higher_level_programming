@@ -9,10 +9,15 @@ class Rectangle(BaseGeometry):
     """Inherited class"""
 
     def __init__(self, width, height):
-        """class initialization"""
-        self.integer_validator("width", width)
+        """class initialization
+            
+            Args:
+            width (int): The width of the new Rectangle.
+            height (int): The height of the new Rectangle.
+        """
+        super().integer_validator("width", width)
         self.__width = width
-        self.integer_validator("height", height)
+        super().integer_validator("height", height)
         self.__height = height
 
     def area(self):
