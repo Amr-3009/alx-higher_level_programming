@@ -4,7 +4,7 @@ a class that i empty
 """
 
 
-class BaseGeometery:
+class BaseGeometry:
     """
     empty class
     """
