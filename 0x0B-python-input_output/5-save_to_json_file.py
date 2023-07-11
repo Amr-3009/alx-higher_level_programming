@@ -3,7 +3,6 @@
 import json
 
 
-
 def save_to_json_file(my_obj, filename):
     """write obj to a txt file using json"""
 
