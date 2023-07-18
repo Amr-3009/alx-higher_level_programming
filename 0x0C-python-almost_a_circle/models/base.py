@@ -1,65 +1,46 @@
 #!/usr/bin/python3
 
-"""Defines a base model class"""
+"""Defines a base model class."""
 import json
 import csv
 import turtle
 
 
 class Base:
-    """Base Model
+    """Base model.
 
-    representation of the base for all the tasks in this project
+    This Represents the "base" for all other classes in project 0x0C*.
 
-    Private class attr:
-        __nb_object (int): no of instances bases
+    Private Class Attributes:
+        __nb_object (int): Number of instantiated Bases.
     """
 
     __nb_objects = 0
 
-    def __int__(self, id=None):
-        """ints a new base
+    def __init__(self, id=None):
+        """Initialize a new Base.
 
         Args:
-            id (int)= identifier of base
+            id (int): The identity of the new Base.
         """
-
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Return the JSON serialization of a list of dicts.
 
-@staticmethod
-def to_json_string(list_dictionaries):
-    """returns json dicts of a list of dicts
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
 
-    args:
-        list_dictionaries (list): list of dicts
-    """
-
-    if list_dictionaries is None or list_dictionaries == []:
-        return "[]"
-    return json.dumps(list_dictionaries)
-
-@staticmethod
-def from_json_string(json_string):
-    """converts json to string
-
-    args:
-        json_string (str): json repr of a list of dicts
-
-    Returns:
-        empty list if json_string is empty
-        otherwise - python list
-    """
-
-    if json_string is None or json_string == "[]":
-        return []
-    return json.loads(json_string)
-
-@classmethod
+    @classmethod
     def save_to_file(cls, list_objs):
         """Write the JSON serialization of a list of objects to a file.
 
@@ -74,7 +55,21 @@ def from_json_string(json_string):
                 list_dicts = [o.to_dictionary() for o in list_objs]
                 jsonfile.write(Base.to_json_string(list_dicts))
 
-@classmethod
+    @staticmethod
+    def from_json_string(json_string):
+        """Return the deserialization of a JSON string.
+
+        Args:
+            json_string (str): A JSON str representation of a list of dicts.
+        Returns:
+            If json_string is None or empty - an empty list.
+            Otherwise - the Python list represented by json_string.
+        """
+        if json_string is None or json_string == "[]":
+            return []
+        return json.loads(json_string)
+
+    @classmethod
     def create(cls, **dictionary):
         """Return a class instantied from a dictionary of attributes.
 
