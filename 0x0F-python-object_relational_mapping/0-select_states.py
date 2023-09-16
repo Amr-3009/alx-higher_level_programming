@@ -6,8 +6,28 @@
 import sys
 import MySQLdb
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+def list_states(username, password, database):
+    # connect to db
+    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database)
     c = db.cursor()
-    c.execute("SELECT * FROM `states`")
-    [print(state) for state in c.fetchall()]
+
+    # Execute the SQL query
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+    # Fetch all rows
+    rows = cursor.fetchall()
+
+    # Print
+    for row in rows:
+        print(row)
+
+    # Close db
+    db.close()
+
+
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    list_states(username, password, database)
