@@ -1,4 +1,4 @@
-#!/user/bin/node
+#!/usr/bin/node
 // random comment
 
 if (process.argv.length === 2) {
