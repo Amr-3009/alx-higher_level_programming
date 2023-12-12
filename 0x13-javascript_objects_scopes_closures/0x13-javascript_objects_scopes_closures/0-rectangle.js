@@ -1,4 +1,4 @@
 #!/usr/bin/node
 // random px
 
-class Rectangle {};
+module.exports = class Rectangle {};
