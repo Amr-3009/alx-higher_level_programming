@@ -2,7 +2,7 @@
 """
 Query States Ending in 'a' from the Database
 
-This script connects to a MySQL database using SQLAlchemy and queries and prints
+This script connects to a MySQL database using SQLAlchemy and queries and print
 information about states from the "states" table whose names end with 'a'.
 
 Usage:
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # and print information
     states = session.query(State).filter(State.name.like('%a'))\
         .order_by(State.id).all()
-    
+
     # Print the information for each state
     for state in states:
         print("{}: {}".format(state.id, state.name))
