@@ -26,7 +26,7 @@ Note:
     Before running the script, make sure to replace "myuser," "mypassword," and
     "mydatabase" with your MySQL username, password, and database name.
 
-Script Workflow:
+Workflow:
 1. Establish a connection to the specified MySQL database using the provided
    username, password, and database name.
 2. Create a cursor object to interact with the database.
@@ -53,10 +53,11 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # Execute an SQL query to select rows from the "states" table where the
-    # starts with 'N' (case-sensitive) and order the results by the 'id' column
+    # starts with 'N' (case-sensitive) and order the results by the 'id' colu
     # in ascending order.
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY
-                id ASC")
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    )
 
     # Fetch all rows returned by the query
     rows = cur.fetchall()
